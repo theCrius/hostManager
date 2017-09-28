@@ -1,0 +1,11 @@
+/dist
+/logs
+/npm-debug.log
+/node_modules
+/public/node_modules
+/public/app/bower_components/*
+!/public/app/bower_components/app.css
+.DS_Store
+.env
+knexfile.js
+constants.js
