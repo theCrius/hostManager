@@ -21,6 +21,7 @@
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "mysql": "^2.14.1",
+    "request": "^2.83.0",
     "uuid": "^3.1.0",
     "widget-knex-schema": "^1.1.0"
   }

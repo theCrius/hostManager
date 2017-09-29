@@ -29,3 +29,8 @@ h1:after
   line-height: 30px;
   border-bottom: 1px dotted gray;
 }
+
+.required:after {
+  content:" *";
+  color:red;
+}

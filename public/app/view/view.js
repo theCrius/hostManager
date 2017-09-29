@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('hm.properties.view', ['ngRoute'])
+angular.module('hm.properties.view', ['ngRoute', 'ngMessages'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/properties/view/:uuid', {
@@ -15,22 +15,22 @@ function ViewCtrl($scope, $location, $http, $routeParams) {
   init();
 
   function init() {
-    $http({method: 'GET', url: 'http://localhost:4000/properties/'+$routeParams.uuid})
+    $http.get('http://localhost:4000/properties/'+$routeParams.uuid)
     .then(function(response) {
       $scope.propertyHistory = response.data;
       $scope.propertyCurrent = response.data[0];
-    }, function(response) {
-      $scope.error = response;
+    }, function(errorResponse) {
+      $scope.error = errorResponse;
     });
   }
 
   $scope.updateProperty = function() {
-    $http({method: 'PUT', url: 'http://localhost:4000/properties/', headers: {'Content-Type': "application/json"}, data: $scope.propertyCurrent})
+    $http.put('http://localhost:4000/properties/', $scope.propertyCurrent)
     .then(function(response) {
       $scope.propertyHistory.unshift(response.data);
       $scope.propertyCurrent = response.data;
-    }, function(response) {
-      $scope.error = response;
+    }, function(errorResponse) {
+      $scope.error = errorResponse;
     });
   }
 

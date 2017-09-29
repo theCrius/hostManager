@@ -3,79 +3,111 @@
     <h4>Property Detail</h4>
   </div>
   <div class="panel-body">
-    <div class="row">
-      <div class="col-md-6 col-xs-12 form-group">
-        <label>Owner</label>
-        <input class="form-control" type="text" ng-model="propertyCurrent.owner">
+    <form name="viewForm">
+      <div class="row">
+        <div class="col-md-6 col-xs-12 form-group">
+          <label class="required">Owner</label>
+          <input class="form-control" type="text" name="owner" ng-model="propertyCurrent.owner" required>
+          <div ng-messages="viewForm.owner.$error" class="text-danger" role="alert">
+            <div ng-message="required">This field is mandatory</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-xs-12 form-group">
+          <label class="required">Income (£)</label>
+          <input class="form-control" type="number" ng-min="1" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01" name="incomeGenerated" ng-model="propertyCurrent.incomeGenerated" required>
+          <div ng-messages="viewForm.incomeGenerated.$error" class="text-danger" role="alert">
+            <div ng-message="required">This field is mandatory</div>
+            <div ng-message="min">A minimum value of 1 is required</div>
+          </div>
+        </div>
       </div>
-      <div class="col-md-6 col-xs-12 form-group">
-        <label>Income (£)</label>
-        <input class="form-control" type="number" ng-model="propertyCurrent.incomeGenerated">
+      <div class="row">
+        <div class="col-md-6 col-xs-12 form-group">
+          <label class="required">Bedrooms</label>
+          <input class="form-control" type="number" ng-min="0" name="numberOfBedrooms" ng-model="propertyCurrent.numberOfBedrooms" required>
+          <div ng-messages="viewForm.numberOfBedrooms.$error" class="text-danger" role="alert">
+            <div ng-message="required">This field is mandatory</div>
+            <div ng-message="min">A minimum value of 0 is required</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-xs-12 form-group">
+          <label class="required">Bathrooms</label>
+          <input class="form-control" type="number" ng-min="1" name="numberOfBathrooms" ng-model="propertyCurrent.numberOfBathrooms" required>
+          <div ng-messages="viewForm.numberOfBathrooms.$error" class="text-danger" role="alert">
+            <div ng-message="required">This field is mandatory</div>
+            <div ng-message="min">A minimum value of 1 is required</div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 col-xs-12 form-group">
-        <label>Bedrooms</label>
-        <input class="form-control" type="number" ng-model="propertyCurrent.numberOfBedrooms">
+      <div class="row">
+        <div class="col-md-6 col-xs-12 form-group">
+          <label class="required">Address Line 1</label>
+          <input class="form-control" type="text" name="line1" ng-model="propertyCurrent.Addresses[0].line1" required>
+          <div ng-messages="viewForm.line1.$error" class="text-danger" role="alert">
+            <div ng-message="required">This field is mandatory</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-xs-12 form-group">
+          <label>Address Line 2</label>
+          <input class="form-control" type="text" name="line2" ng-model="propertyCurrent.Addresses[0].line2">
+        </div>
       </div>
-      <div class="col-md-6 col-xs-12 form-group">
-        <label>Bathrooms</label>
-        <input class="form-control" type="number" ng-model="propertyCurrent.numberOfBathrooms">
+      <div class="row">
+        <div class="col-md-6 col-xs-12 form-group">
+          <label>Address Line 3</label>
+          <input class="form-control" type="text" name="line3" ng-model="propertyCurrent.Addresses[0].line3">
+        </div>
+        <div class="col-md-6 col-xs-12 form-group">
+          <label class="required">Address Line 4</label>
+          <input class="form-control" type="text" name="line4" ng-model="propertyCurrent.Addresses[0].line4" required>
+          <div ng-messages="viewForm.line4.$error" class="text-danger" role="alert">
+            <div ng-message="required">This field is mandatory</div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 col-xs-12 form-group">
-        <label>Address Line 1</label>
-        <input class="form-control" type="text" ng-model="propertyCurrent.Addresses[0].line1">
+      <div class="row">
+        <div class="col-xs-12 form-group">
+          <label class="required">Postcode</label>
+          <input class="form-control" type="text" name="postcode" ng-model="propertyCurrent.Addresses[0].postcode" required>
+          <div ng-messages="viewForm.postcode.$error" class="text-danger" role="alert">
+            <div ng-message="required">This field is mandatory</div>
+          </div>
+        </div>
       </div>
-      <div class="col-md-6 col-xs-12 form-group">
-        <label>Address Line 2</label>
-        <input class="form-control" type="text" ng-model="propertyCurrent.Addresses[0].line2">
+      <div class="row">
+        <div class="col-md-6 col-xs-12 form-group">
+          <label class="required">City</label>
+          <input class="form-control" type="text" name="city" ng-model="propertyCurrent.Addresses[0].city" required>
+          <div ng-messages="viewForm.city.$error" class="text-danger" role="alert">
+            <div ng-message="required">This field is mandatory</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-xs-12 form-group">
+          <label class="required">Country</label>
+          <input class="form-control" type="text" name="country" ng-model="propertyCurrent.Addresses[0].country" required>
+          <div ng-messages="viewForm.country.$error" class="text-danger" role="alert">
+            <div ng-message="required">This field is mandatory</div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 col-xs-12 form-group">
-        <label>Address Line 3</label>
-        <input class="form-control" type="text" ng-model="propertyCurrent.Addresses[0].line3">
+      <div class="row">
+        <div class="col-md-6 col-xs-12 form-group">
+          <label>AirBnB ID</label>
+          <input class="form-control" disabled type="text" value="{{propertyCurrent.airbnbId}}">
+        </div>
+        <div class="col-md-6 col-xs-12 form-group">
+          <label>Last Updated</label>
+          <input class="form-control" disabled type="text" value="{{propertyCurrent.updated_at | date :  'dd/MM/y H:m'}}">
+        </div>
       </div>
-      <div class="col-md-6 col-xs-12 form-group">
-        <label>Address Line 4</label>
-        <input class="form-control" type="text" ng-model="propertyCurrent.Addresses[0].line4">
+      <div class="row">
+        <div class="col-md-2 col-xs-12 form-group">
+          <button class="btn btn-info btn-block form-control" ng-click="back()">Back</button>
+        </div>
+        <div class="col-md-offset-8 col-md-2 col-xs-12 form-group">
+          <button ng-disabled="viewForm.$invalid" class="btn btn-info btn-block form-control" ng-click="updateProperty()">Update</button>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 form-group">
-        <label>Postcode</label>
-        <input class="form-control" type="text" ng-model="propertyCurrent.Addresses[0].postcode">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 col-xs-12 form-group">
-        <label>City</label>
-        <input class="form-control" type="text" ng-model="propertyCurrent.Addresses[0].city">
-      </div>
-      <div class="col-md-6 col-xs-12 form-group">
-        <label>Country</label>
-        <input class="form-control" type="text" ng-model="propertyCurrent.Addresses[0].country">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 col-xs-12 form-group">
-        <label>AirBnB ID</label>
-        <input class="form-control" type="text" ng-model="propertyCurrent.airbnbId">
-      </div>
-      <div class="col-md-6 col-xs-12 form-group">
-        <label>Last Updated</label>
-        <input class="form-control" disabled type="text" value="{{propertyCurrent.updated_at | date :  'dd/MM/y H:m'}}">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-2 col-xs-12 form-group">
-        <button class="btn btn-info btn-block form-control" ng-click="back()">Back</button>
-      </div>
-      <div class="col-md-offset-8 col-md-2 col-xs-12 form-group">
-        <button class="btn btn-info btn-block form-control" ng-click="updateProperty()">Update</button>
-      </div>
-    </div>
+    </form>
   </div>
 </div>
