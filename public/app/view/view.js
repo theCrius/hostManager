@@ -18,7 +18,8 @@ function ViewCtrl($scope, $location, $http, $routeParams) {
     $http.get('http://localhost:4000/properties/'+$routeParams.uuid)
     .then(function(response) {
       $scope.propertyHistory = response.data;
-      $scope.propertyCurrent = response.data[0];
+      $scope.propertyCurrent = angular.copy(response.data[0]);
+      console.log($scope.propertyHistory);
     }, function(errorResponse) {
       $scope.error = errorResponse;
     });
@@ -28,7 +29,7 @@ function ViewCtrl($scope, $location, $http, $routeParams) {
     $http.put('http://localhost:4000/properties/', $scope.propertyCurrent)
     .then(function(response) {
       $scope.propertyHistory.unshift(response.data);
-      $scope.propertyCurrent = response.data;
+      console.log($scope.propertyHistory);
     }, function(errorResponse) {
       $scope.error = errorResponse;
     });

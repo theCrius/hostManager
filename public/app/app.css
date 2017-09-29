@@ -30,6 +30,15 @@ h1:after
   border-bottom: 1px dotted gray;
 }
 
+.history {
+  margin: auto;
+  width: 95%;
+}
+
+.property-history {
+  border-bottom: 1px solid gray;
+}
+
 .required:after {
   content:" *";
   color:red;
