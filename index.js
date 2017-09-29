@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 
 const apiRouter = require('./routes/router')(app);
 app.use('/assets', express.static(path.join(__dirname, '/public/app/bower_components/')));
+app.use('/', express.static(path.join(__dirname, '/public/app/')));
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/public/app/index.html'));
 })

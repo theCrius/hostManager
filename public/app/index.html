@@ -1,37 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--[if lt IE 7]>      <html lang="en" ng-app="hm" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="hm" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="hm" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="hm" class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>hostManager</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="assets/app.css" rel="stylesheet">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
-
 <body>
-
-  <div class="container">
-
-    <div class="starter-template">
-      <h1>hostManager</h1>
-      <ui-view id="main"></ui-view>
-    </div>
-
-  </div><!-- /.container -->
+  <!--[if lt IE 7]>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+  <div class="starter-template">
+    <h1 class="text-info">hostManager</h1>
+    <div ng-view></div>
 
 
-  <!-- Bootstrap core JavaScript
-  ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="app.js"></script>
+  <script src="list/list.js"></script>
+  <script src="view/view.js"></script>
+  <script src="create/create.js"></script>
+
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="assets/jquery/dist/jquery.min.js"><\/script>')</script>
-  <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script>window.jQuery || document.write('<script src="bower_components/jquery/dist/jquery.min.js"><\/script>')</script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

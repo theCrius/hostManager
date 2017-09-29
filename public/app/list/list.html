@@ -1,0 +1,56 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h4>Properties List</h4>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2 col-md-offset-10 col-xs-12">
+        <button class="btn btn-block btn-info" ng-click="create()">New Property</button>
+      </div>
+    </div>
+    <div class="table">
+      <div class="row table-header">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-2">
+          Owner
+        </div>
+        <div class="col-xs-2">
+          AirBnB Link
+        </div>
+        <div class="col-xs-2">
+          Bedrooms
+        </div>
+        <div class="col-xs-2">
+          Bathrooms
+        </div>
+        <div class="col-xs-2">
+          Income
+        </div>
+        <div class="col-xs-1"></div>
+      </div>
+      <div class="row table-row" ng-repeat="property in propertyList">
+        <div class="col-xs-1">
+          <a href="/#!/properties/view/{{property.uuid}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+        </div>
+        <div class="col-xs-2">
+          {{property.owner}}
+        </div>
+        <div class="col-xs-2">
+          <a href="https://www.airbnb.co.uk/rooms/{{property.airbnbId}}" target="blank"><i class="fa fa-external-link" aria-hidden="true"></i> {{property.airbnbId}}</a>
+        </div>
+        <div class="col-xs-2">
+          {{property.numberOfBedrooms}}
+        </div>
+        <div class="col-xs-2">
+          {{property.numberOfBathrooms}}
+        </div>
+        <div class="col-xs-2">
+          {{property.incomeGenerated}} £
+        </div>
+        <div class="col-xs-1 text-right">
+          <a href ng-click="deleteProperty(property.uuid)"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

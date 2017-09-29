@@ -16,8 +16,10 @@
     "cors": "^2.7.1",
     "dotenv": "^4.0.0",
     "express": "^4.13.3",
+    "grunt-angular-boilerplate": "^1.0.0",
     "knex": "^0.13.0",
     "lodash": "^4.17.4",
+    "moment": "^2.18.1",
     "mysql": "^2.14.1",
     "uuid": "^3.1.0",
     "widget-knex-schema": "^1.1.0"

@@ -1,0 +1,31 @@
+/* app css stylesheet */
+
+body {
+  margin: 50px;
+}
+
+h1:after
+{
+  content:' ';
+  display:block;
+  border:1px solid gray;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.table {
+  margin: auto;
+  width: 95%;
+}
+
+.table-header {
+  min-height: 25px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.table-row {
+  min-height: 30px;
+  line-height: 30px;
+  border-bottom: 1px dotted gray;
+}

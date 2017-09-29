@@ -8,9 +8,9 @@ exports.up = function(knex, Promise) {
   .then(function () {
     const seed = '15276b3c-3e4c-41c4-a03f-65ea5148e12a';
     const properties_pool = [
-      {"id": 1, "uuid": uuid('1carlos', seed), "owner": "carlos", "airbnbId": 3512500, "numberOfBedrooms": 1, "numberOfBathrooms": 1, "incomeGenerated": 2000.34},
-      {"id": 2, "uuid": uuid('2ankur', seed), "owner": "ankur", "airbnbId": 1334159, "numberOfBedrooms": 3, "numberOfBathrooms": 1, "incomeGenerated": 10000},
-      {"id": 3, "uuid": uuid('3elaine', seed), "owner": "elaine", "airbnbId": 12220057, "numberOfBedrooms": 2, "numberOfBathrooms": 2, "incomeGenerated": 1200}
+      {"id": 1, "uuid": uuid('carlos3512500', seed), "owner": "carlos", "airbnbId": 3512500, "numberOfBedrooms": 1, "numberOfBathrooms": 1, "incomeGenerated": 2000.34},
+      {"id": 2, "uuid": uuid('ankur1334159', seed), "owner": "ankur", "airbnbId": 1334159, "numberOfBedrooms": 3, "numberOfBathrooms": 1, "incomeGenerated": 10000},
+      {"id": 3, "uuid": uuid('elaine12220057', seed), "owner": "elaine", "airbnbId": 12220057, "numberOfBedrooms": 2, "numberOfBathrooms": 2, "incomeGenerated": 1200}
     ];
     knex.insert(properties_pool).into('properties')
     .finally(() => { knex.destroy() });

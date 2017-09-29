@@ -7,6 +7,6 @@ module.exports = {
   airbnbId: {type: 'integer', unsigned: true, nullable: false},
   numberOfBedrooms: {type: 'integer', unsigned: true, nullable: false},
   numberOfBathrooms: {type: 'integer', unsigned: true, nullable: false},
-  incomeGenerated: {type: 'decimal', precision: 8, scale: 2, unsigned: true, nullable: false},
+  incomeGenerated: {type: 'double', unsigned: true, nullable: false},
   deletedAt: {type: 'dateTime', nullable: true}
 };

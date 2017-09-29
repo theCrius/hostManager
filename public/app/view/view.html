@@ -1,0 +1,81 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h4>Property Detail</h4>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-6 col-xs-12 form-group">
+        <label>Owner</label>
+        <input class="form-control" type="text" ng-model="propertyCurrent.owner">
+      </div>
+      <div class="col-md-6 col-xs-12 form-group">
+        <label>Income (£)</label>
+        <input class="form-control" type="number" ng-model="propertyCurrent.incomeGenerated">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-xs-12 form-group">
+        <label>Bedrooms</label>
+        <input class="form-control" type="number" ng-model="propertyCurrent.numberOfBedrooms">
+      </div>
+      <div class="col-md-6 col-xs-12 form-group">
+        <label>Bathrooms</label>
+        <input class="form-control" type="number" ng-model="propertyCurrent.numberOfBathrooms">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-xs-12 form-group">
+        <label>Address Line 1</label>
+        <input class="form-control" type="text" ng-model="propertyCurrent.Addresses[0].line1">
+      </div>
+      <div class="col-md-6 col-xs-12 form-group">
+        <label>Address Line 2</label>
+        <input class="form-control" type="text" ng-model="propertyCurrent.Addresses[0].line2">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-xs-12 form-group">
+        <label>Address Line 3</label>
+        <input class="form-control" type="text" ng-model="propertyCurrent.Addresses[0].line3">
+      </div>
+      <div class="col-md-6 col-xs-12 form-group">
+        <label>Address Line 4</label>
+        <input class="form-control" type="text" ng-model="propertyCurrent.Addresses[0].line4">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 form-group">
+        <label>Postcode</label>
+        <input class="form-control" type="text" ng-model="propertyCurrent.Addresses[0].postcode">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-xs-12 form-group">
+        <label>City</label>
+        <input class="form-control" type="text" ng-model="propertyCurrent.Addresses[0].city">
+      </div>
+      <div class="col-md-6 col-xs-12 form-group">
+        <label>Country</label>
+        <input class="form-control" type="text" ng-model="propertyCurrent.Addresses[0].country">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-xs-12 form-group">
+        <label>AirBnB ID</label>
+        <input class="form-control" type="text" ng-model="propertyCurrent.airbnbId">
+      </div>
+      <div class="col-md-6 col-xs-12 form-group">
+        <label>Last Updated</label>
+        <input class="form-control" disabled type="text" value="{{propertyCurrent.updated_at | date :  'dd/MM/y H:m'}}">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 col-xs-12 form-group">
+        <button class="btn btn-info btn-block form-control" ng-click="back()">Back</button>
+      </div>
+      <div class="col-md-offset-8 col-md-2 col-xs-12 form-group">
+        <button class="btn btn-info btn-block form-control" ng-click="updateProperty()">Update</button>
+      </div>
+    </div>
+  </div>
+</div>

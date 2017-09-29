@@ -2,6 +2,7 @@
 const Promise = require('bluebird');
 const async = require('async');
 const _ = require('lodash');
+const moment = require('moment');
 
 const Bookshelf = require('../db/bookshelf');
 const Properties = require('../models/properties');
@@ -33,17 +34,17 @@ function view(req, res, next) {
 //Just create a new property using a transaction
 function create(req, res, next) {
   const uuid = require('uuid/v5');
+  let addressPayload = req.body.Addresses[0]; delete req.body.Addresses;
+  let propertyPayload = req.body;
   Bookshelf.transaction((t) => {
-    req.body.property.uuid = uuid(req.body.property.id+req.body.property.owner, process.env.seed);
-    return new Properties(req.body.property)
+    req.body.uuid = uuid(req.body.owner+req.body.incomeGenerated, process.env.seed);
+    return new Properties(propertyPayload)
     .save(null, {transacting: t})
     .tap((property) => {
-      return new Addresses(req.body.address).save({'property_id': property.id}, {transacting: t});
+      return new Addresses(addressPayload).save({'property_id': property.id}, {transacting: t});
     });
   }).then((property) => {
-    Properties.where({id:property.id}).fetch({withRelated: ['Addresses']})
-    .then((data) => { res.send(data) })
-    .catch((err) => { next(err) })
+    res.send(property)
   }).catch(function(err) {
     next(err);
   });
@@ -52,11 +53,17 @@ function create(req, res, next) {
 //Create a new entry for the property with the updated info, using the same uuid
 function update(req, res, next) {
   const uuid = require('uuid/v5');
+  let addressPayload = req.body.Addresses[0];
+  delete addressPayload.created_at;
+  addressPayload.updated_at = moment().format("YYYY-MM-DD HH:mm:ss");
+  let propertyPayload = req.body;
+  delete propertyPayload.Addresses; delete propertyPayload.created_at;
+  propertyPayload.updated_at = moment().format("YYYY-MM-DD HH:mm:ss");
   Bookshelf.transaction((t) => {
-    return new Properties(req.body.property)
+    return new Properties(propertyPayload)
     .save(null, {transacting: t})
     .tap((property) => {
-      return new Addresses(req.body.address).save({'property_id': property.id}, {transacting: t});
+      return new Addresses(addressPayload).save({'property_id': property.id}, {transacting: t});
     });
   }).then((property) => {
     Properties.where({id:property.id}).fetch({withRelated: ['Addresses']})
