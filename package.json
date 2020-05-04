@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "HostManager experiment",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "author": "Claudio Vallesi <claudio.vallesi@gmail.com>",
   "license": "MIT",
@@ -23,6 +25,8 @@
     "mysql": "^2.14.1",
     "request": "^2.83.0",
     "uuid": "^3.1.0",
-    "widget-knex-schema": "^1.1.0"
-  }
+    "widget-knex-schema": "^1.1.0",
+    "snyk": "^1.317.0"
+  },
+  "snyk": true
 }
