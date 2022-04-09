@@ -19,7 +19,7 @@
     "grunt-angular-boilerplate": "^1.0.0",
     "knex": "^0.13.0",
     "lodash": "^4.17.4",
-    "moment": "^2.18.1",
+    "moment": "^2.29.2",
     "mysql": "^2.14.1",
     "request": "^2.83.0",
     "uuid": "^3.1.0",
